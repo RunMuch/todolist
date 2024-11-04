@@ -4,12 +4,11 @@
     rgba(45, 112, 1253, 0.73) 0%,
     #163e92 100%
   );
-
   --dark: #001747;
   --grey: #b1bacb;
   --grey-border: rgba(210, 210, 210, 0.75);
   --grey-light: #eeeeee;
-  --grey-dark: #405175;
+  --grey-dark: $405175;
   --blue: #2d70fd;
   --green: #00d8a7;
   --white: #ffffff;
@@ -47,14 +46,14 @@ p {
   margin: 0;
 }
 
-/* Todo container */
+/* Todo Container */
 
 .todo {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius: 2rem;
-  background-color: var(--white);
+  background: var(--white);
   padding: 3rem;
   height: 50%;
   width: 60%;
@@ -82,7 +81,7 @@ h2 {
   font-size: 1rem;
 }
 
-input [type="text"]::placeholder {
+input[type="text"]::placeholder {
   color: var(--grey);
 }
 
@@ -105,12 +104,26 @@ li {
 }
 
 #todoList p {
+  display: flex;
+  gap: 1rem;
+  color: var(--dark);
+  align-items: center;
+}
+
+#todoList .disabled {
   color: #8f98a8;
 }
 
 .disabled {
   display: flex;
   text-decoration: line-through;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
 }
 
 input[type="checkbox"]::before {
@@ -125,7 +138,7 @@ input[type="checkbox"]::before {
   color: transparent;
 }
 
-input[type="checkbox"]::before::after {
+input[type="checkbox"]:checked::before {
   color: var(--white);
   background-color: var(--green);
   border: 0.06rem solid var(--green);
